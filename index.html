@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7th Session Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .vocab-item {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .vocab-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .vocab-word {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .vocab-meaning {
+            color: #e74c3c;
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .example {
+            color: #555;
+            padding-left: 20px;
+            border-left: 3px solid #ddd;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .grammar-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .grammar-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .structure {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .important-note {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .exercise-section {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .exercise-title {
+            color: #2e7d32;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .exercise-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 3px solid #4caf50;
+        }
+        
+        .answer-key {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .answer-key.show {
+            display: block;
+        }
+        
+        .toggle-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+            margin: 20px 0;
+        }
+        
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .writing-assignment {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            color: #333;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9ff;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .toggle-btn {
+                display: none;
+            }
+            .answer-key {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 7th Session Summary</h1>
+            <p>خلاصه جلسه هفتم | Habitual Behaviour & Past Habits</p>
+        </div>
+        
+        <div class="content">
+            <!-- VOCABULARY SECTION -->
+            <div class="section">
+                <h2 class="section-title">📖 Vocabulary & Expressions</h2>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Although / Though</div>
+                    <div class="vocab-meaning">اگرچه، با وجود اینکه</div>
+                    <div class="example">• Although the restaurant was famous, the food was terrible</div>
+                    <div class="example">• The food was terrible, though the restaurant was famous</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Mess (n)</div>
+                    <div class="vocab-meaning">شلوغ‌پلوغ، به‌هم‌ریخته</div>
+                    <div class="example">• It's a bit of a mess</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">I'm ashamed to say</div>
+                    <div class="vocab-meaning">باعث خجالت است که بگویم</div>
+                    <div class="example">• I'm ashamed to say that I forgot your birthday</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Passionate about + -ing</div>
+                    <div class="vocab-meaning">شور و شوق و عشق به کاری داشتن</div>
+                    <div class="example">• I'm passionate about teaching English</div>
+                    <div class="example">• She's passionate about helping others</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Unwind (v)</div>
+                    <div class="vocab-meaning">آرام شدن، استراحت کردن</div>
+                    <div class="example">• I like to unwind by reading a book</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Open-air (adj)</div>
+                    <div class="vocab-meaning">روباز، بدون سقف</div>
+                    <div class="example">• We had dinner at an open-air restaurant</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Crawl (v)</div>
+                    <div class="vocab-meaning">چهاردست و پا راه رفتن</div>
+                    <div class="example">• The baby is learning to crawl</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Convert sb/sth into sb/sth</div>
+                    <div class="vocab-meaning">تبدیل کردن</div>
+                    <div class="example">• Convert files / elements / religions / currency</div>
+                    <div class="example">• They converted the garage into a studio</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Dull (adj)</div>
+                    <div class="vocab-meaning">خسته‌کننده و تکراری</div>
+                    <div class="example">• The lecture was really dull and repetitive</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Conventional (adj)</div>
+                    <div class="vocab-meaning">سنتی، مرسوم، بسته</div>
+                    <div class="example">• I grew up in a conventional family, that's why I couldn't get an electric guitar</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">On the plus side</div>
+                    <div class="vocab-meaning">جنبه مثبتش این است که</div>
+                    <div class="example">• The job is stressful. On the plus side, it pays well</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">I get to + verb</div>
+                    <div class="vocab-meaning">شانس این را پیدا می‌کنم که</div>
+                    <div class="example">• I get to work with amazing people</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Locksmith (n)</div>
+                    <div class="vocab-meaning">کلیدساز</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Breed (n)</div>
+                    <div class="vocab-meaning">نژاد</div>
+                    <div class="example">• What is the breed of your dog?</div>
+                </div>
+                
+                <div class="vocab-item">
+                    <div class="vocab-word">Breed (v)</div>
+                    <div class="vocab-meaning">تولید مثل کردن</div>
+                    <div class="example">• He breeds dogs professionally</div>
+                </div>
+            </div>
+            
+            <!-- GRAMMAR SECTION 1: TEND TO -->
+            <div class="section">
+                <h2 class="section-title">🎯 Grammar Focus 1: TEND TO</h2>
+                
+                <div class="grammar-box">
+                    <h3>TEND TO (تمایلات کلی)</h3>
+                    <p>Used for making general statements and describing tendencies.</p>
+                    <p><strong>برای بیان کامنت‌های کلی و تمایلات عمومی استفاده می‌شود</strong></p>
+                    
+                    <div class="structure">
+                        <strong>Structure:</strong> Subject + tend(s) to + verb
+                    </div>
+                </div>
+                
+                <div class="important-note">
+                    <strong>💡 Important:</strong> TEND TO is used for general comments about groups of people or repeated patterns, not for specific one-time events.
+                </div>
+                
+                <h4 style="margin: 20px 0;">Examples:</h4>
+                <div class="example">✓ Teenagers tend to spend a lot of time on social media</div>
+                <div class="example">✓ Elderly people tend to be early birds (سحرخیز)</div>
+                <div class="example">✓ Teachers tend to know everything</div>
+                <div class="example">✓ People in cities tend to sleep less than villagers</div>
+                <div class="example">✓ People in villages tend to be physically active all day</div>
+            </div>
+            
+            <!-- GRAMMAR SECTION 2: FREQUENCY ADVERBS -->
+            <div class="section">
+                <h2 class="section-title">⏰ Grammar Focus 2: Frequency Adverbs</h2>
+                
+                <div class="grammar-box">
+                    <h3>Frequency Adverbs (قیدهای تکرار)</h3>
+                    <p>Describe how often something happens</p>
+                    
+                    <div class="structure">
+                        <strong>Common adverbs:</strong><br>
+                        always • usually • often • sometimes • rarely • never
+                    </div>
+                </div>
+                
+                <h4 style="margin: 20px 0; color: #667eea;">Word Order Rules:</h4>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <th>Position</th>
+                        <th>Rule</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Before main verb</strong></td>
+                        <td>Most verbs</td>
+                        <td>I <strong>usually</strong> get up early</td>
+                    </tr>
+                    <tr>
+                        <td><strong>After "be"</strong></td>
+                        <td>Verb "to be"</td>
+                        <td>She <strong>is always</strong> on time</td>
+                    </tr>
+                </table>
+                
+                <h4 style="margin: 20px 0; color: #667eea;">Frequency Expressions:</h4>
+                <div class="vocab-item">
+                    <div>• once a week</div>
+                    <div>• every day</div>
+                    <div>• twice a month</div>
+                    <div>• from time to time</div>
+                    <div>• most mornings</div>
+                    <div>• every now and then</div>
+                </div>
+            </div>
+            
+            <!-- GRAMMAR SECTION 3: USED TO -->
+            <div class="section">
+                <h2 class="section-title">🔄 Grammar Focus 3: USED TO</h2>
+                
+                <div class="grammar-box">
+                    <h3>USED TO (عادت‌های گذشته)</h3>
+                    <p>Talk about past habits or states that are NO LONGER TRUE</p>
+                    <p><strong>برای صحبت درباره عادت‌ها یا حالت‌هایی که در گذشته درست بودند اما الان دیگر صادق نیستند</strong></p>
+                    
+                    <div class="structure">
+                        <strong>✓ Positive:</strong> Subject + used to + verb<br>
+                        <strong>✗ Negative:</strong> Subject + didn't use to + verb<br>
+                        <strong>? Question:</strong> Did + subject + use to + verb?
+                    </div>
+                </div>
+                
+                <div class="important-note">
+                    <strong>⚠️ Critical Rule:</strong> USED TO works for both HABITS and STATES (0-1 situations)<br>
+                    <em>This is the main difference from WOULD (which only works for actions)</em>
+                </div>
+                
+                <h4 style="margin: 20px 0;">Examples:</h4>
+                <div class="example">✓ I used to smoke (now I have quit) - HABIT</div>
+                <div class="example">✓ I didn't use to have a pet - STATE</div>
+                <div class="example">✓ I used to hate Karafs Stew - STATE</div>
+                <div class="example">✓ I used to live in Tehran - STATE</div>
+                <div class="example">✓ Did you use to play football? - HABIT</div>
+            </div>
+            
+            <!-- GRAMMAR SECTION 4: WOULD -->
+            <div class="section">
+                <h2 class="section-title">🔁 Grammar Focus 4: WOULD</h2>
+                
+                <div class="grammar-box">
+                    <h3>WOULD (عادت‌های تکراری گذشته)</h3>
+                    <p>Describe repeated actions in the past - ONLY ACTIONS, NOT STATES</p>
+                    <p><strong>فقط برای توصیف اعمال تکراری در گذشته، نه برای حالت‌ها</strong></p>
+                    
+                    <div class="structure">
+                        <strong>Structure:</strong> Subject + would + verb
+                    </div>
+                </div>
+                
+                <h4 style="margin: 20px 0;">Examples:</h4>
+                <div class="example">✓ When I was a child, my grandma <strong>would</strong> tell stories every night</div>
+                <div class="example">✓ I <strong>would</strong> crawl out of bed and go straight into the garage</div>
+                <div class="example">✓ I <strong>would</strong> sometimes go for days without speaking to anyone</div>
+                
+                <div class="important-note" style="margin-top: 20px;">
+                    <strong>🚫 CRITICAL DIFFERENCE:</strong><br><br>
+                    ✓ I <strong>used to</strong> have a dog (CORRECT - "have" is a state)<br>
+                    ✗ I <strong>would</strong> have a dog (WRONG - "would" doesn't work with states)
+                </div>
+                
+                <h4 style="margin: 20px 0; color: #667eea;">USED TO vs WOULD Comparison:</h4>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>USED TO</th>
+                        <th>WOULD</th>
+                    </tr>
+                    <tr>
+                        <td><strong>For actions</strong></td>
+                        <td>✓ Yes</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>For states</strong></td>
+                        <td>✓ Yes</td>
+                        <td>✗ No</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example (action)</strong></td>
+                        <td>I used to play football</td>
+                        <td>I would play football</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example (state)</strong></td>
+                        <td>I used to live in Tehran</td>
+                        <td>❌ I would live in Tehran</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- HOMEWORK EXERCISES -->
+            <div class="section">
+                <h2 class="section-title">📝 Homework Exercises</h2>
+                
+                <!-- Exercise 1 -->
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 1: Vocabulary Matching</div>
+                    <p>Match the words with their Farsi meanings:</p>
+                    
+                    <div class="exercise-item">
+                        <strong>Column A:</strong><br>
+                        1. Unwind<br>
+                        2. Conventional<br>
+                        3. Dull<br>
+                        4. Breed (n)<br>
+                        5. Crawl<br>
+                        6. Open-air<br>
+                        7. Mess<br><br>
+                        
+                        <strong>Column B:</strong><br>
+                        a) نژاد<br>
+                        b) شلوغ‌پلوغ<br>
+                        c) خسته‌کننده<br>
+                        d) سنتی<br>
+                        e) آرام شدن<br>
+                        f) روباز<br>
+                        g) چهاردست و پا راه رفتن
+                    </div>
+                </div>
+                
+                <!-- Exercise 2 -->
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 2: TEND TO</div>
+                    <p>Complete the sentences using "tend to" and an appropriate verb:</p>
+                    
+                    <div class="exercise-item">
+                        1. Young children __________ many questions about everything.<br>
+                        2. University students __________ late at night studying.<br>
+                        3. People in hot countries __________ spicy food.<br>
+                        4. Professional athletes __________ strict diets.<br>
+                        5. Elderly people __________ earlier than young people.
+                    </div>
+                </div>
+                
+                <!-- Exercise 3 -->
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 3: Frequency Adverbs</div>
+                    <p>Rewrite the sentences with the frequency adverb in the correct position:</p>
+                    
+                    <div class="exercise-item">
+                        1. I am late for work. (never)<br>
+                        2. She drinks coffee in the morning. (always)<br>
+                        3. They go to the cinema. (once a month)<br>
+                        4. He is tired after work. (usually)<br>
+                        5. We eat out at restaurants. (from time to time)
+                    </div>
+                </div>
+                
+                <!-- Exercise 4 -->
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 4: USED TO vs WOULD</div>
+                    <p>Choose the correct option. In some sentences, both are possible:</p>
+                    
+                    <div class="exercise-item">
+                        1. When I was young, I <strong>used to / would</strong> play football every weekend.<br>
+                        2. I <strong>used to / would</strong> have long hair when I was a teenager.<br>
+                        3. My grandfather <strong>used to / would</strong> tell us amazing stories about the war.<br>
+                        4. We <strong>used to / would</strong> live in a small apartment in the city center.<br>
+                        5. During summer holidays, we <strong>used to / would</strong> go swimming every day.<br>
+                        6. She <strong>used to / would</strong> be very shy, but now she's confident.<br>
+                        7. My father <strong>used to / would</strong> take us to the park on Sundays.<br>
+                        8. I <strong>used to / would</strong> believe in Santa Claus.
+                    </div>
+                </div>
+                
+                <!-- Exercise 5 -->
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 5: Error Correction</div>
+                    <p>Find and correct the mistakes:</p>
+                    
+                    <div class="exercise-item">
+                        1. I would have a cat when I was a child.<br>
+                        2. She tends being late for meetings.<br>
+                        3. I use to wake up at 6 AM every day.<br>
+                        4. Teachers tend know their students well.<br>
+                        5. He woulds visit his grandmother every weekend.<br>
+                        6. I didn't used to like vegetables.
+                    </div>
+                </div>
+                
+                <!-- Exercise 6 -->
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 6: Translation Practice</div>
+                    <p>Translate these sentences into English:</p>
+                    
+                    <div class="exercise-item">
+                        1. من قبلاً ورزش نمی‌کردم ولی الان هر روز می‌روم باشگاه.<br>
+                        2. مردم ایران تمایل دارند که به مهمان‌نوازی اهمیت بدهند.<br>
+                        3. جنبه مثبتش این است که من شانس این را پیدا می‌کنم که با افراد مختلف کار کنم.<br>
+                        4. وقتی بچه بودم، مادربزرگم هر شب برایمان قصه تعریف می‌کرد.<br>
+                        5. باعث خجالت است که بگویم، من قبلاً به موسیقی کلاسیک علاقه نداشتم.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- WRITING ASSIGNMENT -->
+            <div class="writing-assignment">
+                <h2 style="margin-bottom: 20px;">✍️ Writing Assignment</h2>
+                <h3>Topic: "My Life Then and Now"</h3>
+                
+                <p><strong>Instructions:</strong></p>
+                <p>Write a paragraph (150-200 words) comparing your life in the past with your life now. You must include:</p>
+                
+                <ul style="margin: 20px 0; line-height: 2;">
+                    <li>✓ At least 2 sentences with <strong>"USED TO"</strong></li>
+                    <li>✓ At least 1 sentence with <strong>"WOULD"</strong> (describing a repeated action)</li>
+                    <li>✓ At least 1 sentence with <strong>"TEND TO"</strong></li>
+                    <li>✓ At least 3 vocabulary words from today's lesson</li>
+                    <li>✓ At least 2 frequency adverbs or expressions</li>
+                </ul>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <strong>Example opening:</strong><br>
+                    <em>"When I was younger, I used to be very conventional and shy. I would spend most of my time at home, rarely going out with friends. These days, I tend to be more social..."</em>
+                </div>
+                
+                <p style="margin-top: 20px;"><strong>📅 Deadline:</strong> Next session</p>
+            </div>
+            
+            <!-- ANSWER KEY BUTTON -->
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="toggle-btn" onclick="toggleAnswers()">🔑 Show/Hide Answer Key</button>
+            </div>
+            
+            <!-- ANSWER KEY -->
+            <div class="answer-key" id="answerKey">
+                <h2 style="color: #667eea; margin-bottom: 20px;">📋 Answer Key</h2>
+                
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 1: Vocabulary Matching</div>
+                    <div class="exercise-item">
+                        1-e, 2-d, 3-c, 4-a, 5-g, 6-f, 7-b
+                    </div>
+                </div>
+                
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 2: TEND TO</div>
+                    <div class="exercise-item">
+                        1. tend to ask<br>
+                        2. tend to stay up<br>
+                        3. tend to eat<br>
+                        4. tend to follow<br>
+                        5. tend to wake up
+                    </div>
+                </div>
+                
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 3: Frequency Adverbs</div>
+                    <div class="exercise-item">
+                        1. I am never late for work.<br>
+                        2. She always drinks coffee in the morning.<br>
+                        3. They go to the cinema once a month.<br>
+                        4. He is usually tired after work.<br>
+                        5. We eat out at restaurants from time to time.
+                    </div>
+                </div>
+                
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 4: USED TO vs WOULD</div>
+                    <div class="exercise-item">
+                        1. Both (action - repeated habit)<br>
+                        2. used to (state - having hair)<br>
+                        3. Both (action - repeated habit)<br>
+                        4. used to (state - living somewhere)<br>
+                        5. Both (action - repeated habit)<br>
+                        6. used to (state - being shy)<br>
+                        7. Both (action - repeated habit)<br>
+                        8. used to (state - believing)
+                    </div>
+                </div>
+                
+                <div class="exercise-section">
+                    <div class="exercise-title">Exercise 5: Error Correction</div>
+                    <div class="exercise-item">
+                        1. I <strong>used to</strong> have a cat when I was a child. (would doesn't work with states)<br>
+                        2. She tends <strong>to be</strong> late for
